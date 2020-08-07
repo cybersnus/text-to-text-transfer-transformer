@@ -417,4 +417,4 @@ TaskRegistry.add(
     splits=['train'],
     metric_fns=None,
     postprocess_fn,
-    token_preprocessor=preprocessors.unsupervised
+    token_preprocessor=preprocessors.unsupervised)
