@@ -2501,8 +2501,8 @@ def preprocess_tsv(dataset,
 
 @gin.configurable
 def unsupervised_swe_fn(
-                        path_to_file=gin.REQUIRED,
                         split,
+                        path_to_file=gin.REQUIRED,
                         shuffle_files=False): #ta ev bort split
   "test med expressen, hårdkodat"                      
   dumps = ["/expressen1.json","/expressen2.json","/expressen3.json","/expressen4.json","/expressen5.json"]
