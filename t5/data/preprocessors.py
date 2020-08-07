@@ -2500,10 +2500,7 @@ def preprocess_tsv(dataset,
       _parse_fn, num_parallel_calls=tf.data.experimental.AUTOTUNE)
 
 @gin.configurable
-def unsupervised_swe_fn(
-                        split=None,
-                        path_to_file=gin.REQUIRED,
-                        shuffle_files=False): #ta ev bort split
+def unsupervised_swe_fn(split=None, shuffle_files=False, path_to_file=gin.REQUIRED): #ta ev bort split
   "test med expressen, hårdkodat"                      
   dumps = ["/expressen1.json","/expressen2.json","/expressen3.json","/expressen4.json","/expressen5.json"]
   del shuffle_files
