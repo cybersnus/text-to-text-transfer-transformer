@@ -22,7 +22,7 @@ from t5.data.utils import Feature
 from t5.data.utils import get_default_vocabulary
 from t5.data.utils import set_global_cache_dirs
 from t5.data.utils import TaskRegistry
-from t5.data.utils import TfdsTask
+from t5.data.utils import TfdsTask, Task
 from t5.evaluation import metrics
 import tensorflow_datasets as tfds
 
@@ -410,3 +410,11 @@ TaskRegistry.add(
     metric_fns=[],
     token_preprocessor=preprocessors.trivia_qa_truncate_inputs,
     output_features=DEFAULT_OUTPUT_FEATURES)
+# ================================= UnsupervisedSWE ===================================
+TaskRegistry.add(
+    "swe_unsupervised",
+    dataset_fn=preprocessors.unsupervised_swe_fn,
+    splits=['train']
+    metric_fns=[],
+    postprocess_fn,
+    token_preprocessor=preprocessors.unsupervised
