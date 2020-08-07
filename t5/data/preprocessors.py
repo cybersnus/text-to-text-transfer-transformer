@@ -2501,7 +2501,7 @@ def preprocess_tsv(dataset,
 
 @gin.configurable
 def unsupervised_swe_fn(
-                        split,
+                        split=None,
                         path_to_file=gin.REQUIRED,
                         shuffle_files=False): #ta ev bort split
   "test med expressen, hårdkodat"                      
