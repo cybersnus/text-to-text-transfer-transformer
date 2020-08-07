@@ -1198,7 +1198,7 @@ def _validate_args(fn, expected_pos_args):
             fn.__name__, expected_pos_args, actual_pos_args))
 
 @gin.configurable
-def unsupervised_dataset_fn(split, shuffle_files=False, path_to_file=gin.REQUIRED)
+def unsupervised_dataset_fn(split, shuffle_files=False, path_to_file=gin.REQUIRED):
   "test med expressen, hårdkodat"                      
   dumps = ["/expressen1.json","/expressen2.json","/expressen3.json","/expressen4.json","/expressen5.json"]
   del shuffle_files
