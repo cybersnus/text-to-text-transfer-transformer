@@ -28,6 +28,7 @@ import re
 from absl import logging
 import gin
 import numpy as np
+from t5.data import preprocessors
 from t5.data import sentencepiece_vocabulary
 import tensorflow.compat.v1 as tf
 import tensorflow_datasets as tfds
