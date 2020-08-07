@@ -415,6 +415,7 @@ TaskRegistry.add(
     "swe_unsupervised",
     dataset_fn=preprocessors.unsupervised_swe_fn,
     splits=['train'],
+    text_preprocessor=None,
     metric_fns=None,
     postprocess_fn=None,
     token_preprocessor=preprocessors.unsupervised)
