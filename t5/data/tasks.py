@@ -16,9 +16,9 @@
 import collections
 import functools
 
+from t5.data import datasets_fn
 from t5.data import postprocessors
 from t5.data import preprocessors
-from t5.data.utils import unsupervised_dataset_fn
 from t5.data.utils import Feature
 from t5.data.utils import get_default_vocabulary
 from t5.data.utils import set_global_cache_dirs
@@ -414,7 +414,7 @@ TaskRegistry.add(
 # ================================= UnsupervisedSWE ===================================
 TaskRegistry.add(
     "swe_unsupervised",
-    dataset_fn=unsupervised_dataset_fn,
+    dataset_fn=datasets_fn.unsupervised_dataset_fn,
     splits=['train'],
     text_preprocessor=None,
     metric_fns=None,
