@@ -424,7 +424,7 @@ class Task(DatasetProviderBase):
           "Task name '%s' contains invalid characters. Must match regex: %s" % (
               name, _VALID_TASK_NAME_REGEX.pattern))
     print(dataset_fn)
-    print(inspect.getfullargspec(dataset_fn)
+    print(inspect.getfullargspec(dataset_fn))
     _validate_args(dataset_fn, ["split", "shuffle_files"])
     metric_fns = metric_fns or []
     for metric_fn in metric_fns:
