@@ -1,10 +1,9 @@
-import gin
 import tensorflow.compat.v1 as tf
 
 
-@gin.configurable
-def unsupervised_dataset_fn(split, shuffle_files=False, path_to_file=gin.REQUIRED):
-  "test med expressen, hårdkodat"                      
+def unsupervised_dataset_fn(split, shuffle_files=False):
+  "test med expressen, hårdkodat. OBS! Man kan ej ha .gin config på path till ds, det fuckar argesen som skickas till _validate_args i utils.py. Det blir alltså hårdkodat"
+  path_to_file = "gs://t5_train_swe/Data"
   dumps = ["/expressen1.json","/expressen2.json","/expressen3.json","/expressen4.json","/expressen5.json"]
   del shuffle_files
   for i, dump in enumerate(dumps):
