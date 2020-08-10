@@ -13,9 +13,4 @@ def unsupervised_dataset_fn(split, shuffle_files=False):
     df.dropna(inplace=True)
     ds = tf.data.Dataset.from_tensor_slices((None, df['text'].str.lower()))
     ds = ds.map(lambda *ex: dict(zip(["inputs", "targets"], ex)))
-    if i==0:
-      combined_dataset = ds
-    else:
-      combined_dataset = combined_dataset.concatenate(ds)
-
-  return combined_dataset
+  return ds
