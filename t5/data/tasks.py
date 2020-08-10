@@ -417,7 +417,7 @@ TaskRegistry.add(
     dataset_fn=datasets_fn.unsupervised_dataset_fn,
     splits=['train'],
     text_preprocessor=functools.partial(
-        t5.data.preprocessors.rekey,
+        preprocessors.rekey,
         key_map = {'inputs': None, 'targets': 'text'},
     ),
     token_preprocessor=preprocessors.unsupervised,
