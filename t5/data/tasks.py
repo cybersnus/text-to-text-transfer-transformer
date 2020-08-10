@@ -422,3 +422,4 @@ TaskRegistry.add(
     ),
     token_preprocessor=preprocessors.unsupervised,
     metric_fns=None,
+    )
