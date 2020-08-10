@@ -1,5 +1,5 @@
 import tensorflow.compat.v1 as tf
-
+import pandas as pd
 
 def unsupervised_dataset_fn(split, shuffle_files=False):
   "test med expressen, hårdkodat. OBS! Man kan ej ha .gin config på path till ds, det fuckar argesen som skickas till _validate_args i utils.py. Det blir alltså hårdkodat"
