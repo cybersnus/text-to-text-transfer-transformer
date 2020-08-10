@@ -11,6 +11,6 @@ def unsupervised_dataset_fn(split, shuffle_files=False):
     df.head()
     df.drop(['published','url','title', 'description'], inplace=True, axis=1)
     df.dropna(inplace=True)
-    ds = tf.data.Dataset.from_tensor_slices((None, df['text'].str.lower()))
+    ds = tf.data.Dataset.from_tensor_slices(("", df['text'].str.lower()))
     ds = ds.map(lambda *ex: dict(zip(["inputs", "targets"], ex)))
   return ds
