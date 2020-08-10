@@ -9,8 +9,8 @@ def unsupervised_dataset_fn(split, shuffle_files=False):
   for i, dump in enumerate(dumps):
     df = pd.read_json(path_to_file + dump)
     df.head()
-    df.drop(['published','url','title', 'description'], inplace=True, axis=1)
+    df.drop(['published','url','title'], inplace=True, axis=1)
     df.dropna(inplace=True)
-    ds = tf.data.Dataset.from_tensor_slices(("", df['text'].str.lower()))
-    ds = ds.map(lambda *ex: dict(zip(["inputs", "targets"], ex)))
+    ds = tf.data.Dataset.from_tensor_slices((df['description'], df['text'].str.lower()))
+    ds = ds.map(lambda *ex: dict(zip(["title", "text"], ex)))
   return ds

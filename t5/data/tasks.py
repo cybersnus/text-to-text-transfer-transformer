@@ -416,7 +416,9 @@ TaskRegistry.add(
     "swe_unsupervised",
     dataset_fn=datasets_fn.unsupervised_dataset_fn,
     splits=['train'],
-    text_preprocessor=None,
-    metric_fns=None,
-    postprocess_fn=None,
+    text_preprocessor=functools.partial(
+        t5.data.preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
     token_preprocessor=preprocessors.unsupervised)
+    metric_fns=None,
