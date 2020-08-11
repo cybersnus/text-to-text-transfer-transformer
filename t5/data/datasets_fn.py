@@ -1,16 +1,17 @@
 import tensorflow.compat.v1 as tf
-import pandas as pd
+import functools
 
 def unsupervised_dataset_fn(split, shuffle_files=False):
-  "test med expressen, hårdkodat. OBS! Man kan ej ha .gin config på path till ds, det fuckar argesen som skickas till _validate_args i utils.py. Det blir alltså hårdkodat"
-  path_to_file = "gs://t5_swe_bucket/Data"
-  dumps = ["/expressen1.json"]
   del shuffle_files
-  for i, dump in enumerate(dumps):
-    df = pd.read_json(path_to_file + dump)
-    df.head()
-    df.drop(['published','url','title'], inplace=True, axis=1)
-    df.dropna(inplace=True)
-    ds = tf.data.Dataset.from_tensor_slices((df['description'], df['text'].str.lower()))
-    ds = ds.map(lambda *ex: dict(zip(["title", "text"], ex)))
+  
+  DATA_DIR = 'gs://t5_swe_bucket/Data/'
+  FILES = tf.io.gfile.listdir(DATA_DIR)
+  FILES_PATH = [DATA_DIR + FILE for FILE in FILES]
+  print(FILES_PATH)
+  ds = tf.data.TextLineDataset([FILES_PATH])
+  ds = ds.map(
+      functools.partial(tf.io.decode_csv, record_defaults=["", ""],
+                        field_delim="\t", use_quote_delim=False),
+      num_parallel_calls=tf.data.experimental.AUTOTUNE)
+  ds = ds.map(lambda *ex: dict(zip(["title", "text"], ex)))
   return ds
