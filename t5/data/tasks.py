@@ -423,3 +423,15 @@ TaskRegistry.add(
     token_preprocessor=preprocessors.unsupervised,
     metric_fns=None,
     )
+# ================================= translate SWE ===================================
+TaskRegistry.add(
+    "swe_eng_translate",
+    dataset_fn=datasets_fn.translate_dataset_fn,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+          preprocessors.translate,
+          source_language="en",
+          target_language="sv",
+    ),
+    metric_fns=[metrics.bleu]
+)
