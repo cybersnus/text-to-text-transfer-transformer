@@ -4,7 +4,7 @@ import functools
 def unsupervised_dataset_fn(split, shuffle_files=False):
   del shuffle_files
   
-  DATA_DIR = 'gs://t5_swe_bucket/Data/'
+  DATA_DIR = 'gs://t5_swe_bucket/Data/U/'
   FILES = tf.io.gfile.listdir(DATA_DIR)
   FILES_PATH = [DATA_DIR + FILE for FILE in FILES]
 
@@ -19,7 +19,7 @@ def unsupervised_dataset_fn(split, shuffle_files=False):
 def translate_dataset_fn(split, shuffle_files=False):
   del shuffle_files
   # Load lines from the text file as examples.
-  DATA_DIR = 'gs://t5_swe_bucket/Data/'
+  DATA_DIR = 'gs://t5_swe_bucket/Data/T/'
   FILES = tf.io.gfile.listdir(DATA_DIR)
   FILES_PATH = [DATA_DIR + FILE for FILE in FILES]
 
