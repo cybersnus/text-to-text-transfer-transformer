@@ -231,3 +231,9 @@ MixtureRegistry.add(
 MixtureRegistry.add(
     "wsc_dpr_simple_proportional",
     [(name, _SUPER_GLUE_WEIGHT_MAPPING[name]) for name in _wsc_dpr_tasks])
+# ================================= SWE scratch ==================================
+
+MixtureRegistry.add(
+    "SWE",
+    ["swe_eng_translate", "swe_unsupervised"],
+    default_rate=1.0)
