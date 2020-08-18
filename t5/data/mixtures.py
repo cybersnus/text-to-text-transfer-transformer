@@ -234,6 +234,7 @@ MixtureRegistry.add(
 # ================================= SWE scratch ==================================
 
 MixtureRegistry.add(
-    "SWE",
-    ["swe_eng_translate", "swe_unsupervised"],
-    default_rate=1.0)
+    "Nordic",
+    [["sv_news", 0.0625], ["sv_subs", 0.0625], ["sv_rs", 0.0625], ["sv_wiki", 0.0625], ["sv_cc", 0.0625], ["sv_fb", 0.0625], ["sv_fl", 0.0625], ["sv_papers", 0.0625],
+     ["dk_dedup", 0.1], ["dk_subs", 0.1], ["no_subs", 0.06], ["no_dedup", 0.06], ["no_speech", 0.06], ["no_news", 0.06], ["no_wiki", 0.06]],
+    )

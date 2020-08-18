@@ -411,10 +411,10 @@ TaskRegistry.add(
     metric_fns=[],
     token_preprocessor=preprocessors.trivia_qa_truncate_inputs,
     output_features=DEFAULT_OUTPUT_FEATURES)
-# ================================= UnsupervisedSWE ===================================
+# ================================= sv_udf_news ===================================
 TaskRegistry.add(
-    "swe_unsupervised",
-    dataset_fn=datasets_fn.unsupervised_dataset_fn,
+    "sv_news",
+    dataset_fn=datasets_fn.sv_udf_news,
     splits=['train'],
     text_preprocessor=functools.partial(
         preprocessors.rekey,
@@ -423,10 +423,192 @@ TaskRegistry.add(
     token_preprocessor=preprocessors.unsupervised,
     metric_fns=None,
     )
-# ================================= translate SWE ===================================
+# ================================= sv_udf_wiki ===================================
 TaskRegistry.add(
-    "swe_eng_translate",
-    dataset_fn=datasets_fn.translate_dataset_fn,
+    "sv_wiki",
+    dataset_fn=datasets_fn.sv_udf_wiki,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= sv_udf_subs ===================================
+TaskRegistry.add(
+    "sv_subs",
+    dataset_fn=datasets_fn.sv_udf_subs,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= sv_udf_rs ===================================
+TaskRegistry.add(
+    "sv_rs",
+    dataset_fn=datasets_fn.sv_udf_rs,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= sv_udf_cc ===================================
+TaskRegistry.add(
+    "sv_cc",
+    dataset_fn=datasets_fn.sv_udf_cc,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= sv_udf_fb ===================================
+TaskRegistry.add(
+    "sv_fb",
+    dataset_fn=datasets_fn.sv_udf_fb,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= sv_udf_fl ===================================
+TaskRegistry.add(
+    "sv_fl",
+    dataset_fn=datasets_fn.sv_udf_fl,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= sv_udf_papers ===================================
+TaskRegistry.add(
+    "sv_papers",
+    dataset_fn=datasets_fn.sv_udf_papers,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= dk_udf_dedup ===================================
+TaskRegistry.add(
+    "dk_dedup",
+    dataset_fn=datasets_fn.dk_udf_dedup,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= dk_udf_subs ===================================
+TaskRegistry.add(
+    "dk_subs",
+    dataset_fn=datasets_fn.dk_udf_subs,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= no_udf_subs ===================================
+TaskRegistry.add(
+    "no_subs",
+    dataset_fn=datasets_fn.no_udf_subs,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= no_udf_speech ===================================
+TaskRegistry.add(
+    "no_speech",
+    dataset_fn=datasets_fn.no_udf_speech,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= no_udf_news ===================================
+TaskRegistry.add(
+    "no_news",
+    dataset_fn=datasets_fn.no_udf_news,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= no_udf_wiki ===================================
+TaskRegistry.add(
+    "no_wiki",
+    dataset_fn=datasets_fn.no_udf_wiki,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+# ================================= no_udf_dedup ===================================
+TaskRegistry.add(
+    "no_dedup",
+    dataset_fn=datasets_fn.no_udf_dedup,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+
+
+# ================================= translate SV-EN ===================================
+TaskRegistry.add(
+    "sv_en_translate",
+    dataset_fn=datasets_fn.tte_dataset_fn,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+          preprocessors.translate,
+          source_language="sv",
+          target_language="en",
+    ),
+    metric_fns=[metrics.bleu]
+)
+# ================================= translate EN-SV ===================================
+TaskRegistry.add(
+    "en_sv_translate",
+    dataset_fn=datasets_fn.tts_dataset_fn,
     splits=['train'],
     text_preprocessor=functools.partial(
           preprocessors.translate,
@@ -435,3 +617,4 @@ TaskRegistry.add(
     ),
     metric_fns=[metrics.bleu]
 )
+
