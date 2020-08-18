@@ -231,7 +231,7 @@ MixtureRegistry.add(
 MixtureRegistry.add(
     "wsc_dpr_simple_proportional",
     [(name, _SUPER_GLUE_WEIGHT_MAPPING[name]) for name in _wsc_dpr_tasks])
-# ================================= SWE scratch ==================================
+# ================================= Nordic ==================================
 
 MixtureRegistry.add(
     "Nordic",

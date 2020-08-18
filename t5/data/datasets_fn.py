@@ -105,7 +105,7 @@ def sv_udf_papers(split, shuffle_files=False):
   ds = ds.map(lambda *ex: dict(zip(["title", "text"], ex)))
   return ds
 '=============dk_udf_dedupe=================='
-def dk_udf_dedupe(split, shuffle_files=False):
+def dk_udf_dedup(split, shuffle_files=False):
   del shuffle_files
   DATA_DIR = 'gs://t5_swe_bucket/Data/U/U_DK/'
   FILES_PATH = tf.io.gfile.glob(DATA_DIR + "*dedup*")
@@ -183,7 +183,7 @@ def no_udf_wiki(split, shuffle_files=False):
   ds = ds.map(lambda *ex: dict(zip(["title", "text"], ex)))
   return ds
 '=============no_udf_dedupe=================='
-def no_udf_dedupe(split, shuffle_files=False):
+def no_udf_dedup(split, shuffle_files=False):
   del shuffle_files
   DATA_DIR = 'gs://t5_swe_bucket/Data/U/U_NO/'
   FILES_PATH = tf.io.gfile.glob(DATA_DIR + "*dedup*")
