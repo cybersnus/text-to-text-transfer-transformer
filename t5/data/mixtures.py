@@ -238,3 +238,11 @@ MixtureRegistry.add(
     [["sv_news", 0.0625], ["sv_subs", 0.0625], ["sv_rs", 0.0625], ["sv_wiki", 0.0625], ["sv_cc", 0.0625], ["sv_fb", 0.0625], ["sv_fl", 0.0625], ["sv_papers", 0.0625],
      ["dk_dedup", 0.1], ["dk_subs", 0.1], ["no_subs", 0.06], ["no_dedup", 0.06], ["no_speech", 0.06], ["no_news", 0.06], ["no_wiki", 0.06]],
     )
+# ================================= Translate ==================================
+
+MixtureRegistry.add(
+    "Translate",
+    [["sv_news", 0.0625], ["sv_subs", 0.0625], ["sv_rs", 0.0625], ["sv_wiki", 0.0625], ["sv_cc", 0.0625], ["sv_fb", 0.0625], ["sv_fl", 0.0625], ["sv_papers", 0.0625],
+     ["en_u", 0.2], ["sv_en_translate", 0.15], ["en_sv_translate", 0.15]],
+    )
+

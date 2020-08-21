@@ -30,7 +30,7 @@ def sv_udf_wiki(split, shuffle_files=False):
 def sv_udf_subs(split, shuffle_files=False):
   del shuffle_files
   DATA_DIR = 'gs://t5_swe_bucket/Data/U/U_SE/'
-  FILES_PATH = tf.io.gfile.glob(DATA_DIR + "*wiki*")
+  FILES_PATH = tf.io.gfile.glob(DATA_DIR + "*subs*")
 
   ds = tf.data.TextLineDataset([FILES_PATH])
   ds = ds.map(
@@ -43,7 +43,7 @@ def sv_udf_subs(split, shuffle_files=False):
 def sv_udf_rs(split, shuffle_files=False):
   del shuffle_files
   DATA_DIR = 'gs://t5_swe_bucket/Data/U/U_SE/'
-  FILES_PATH = tf.io.gfile.glob(DATA_DIR + "*rs*")
+  FILES_PATH = tf.io.gfile.glob(DATA_DIR + "rs*")
 
   ds = tf.data.TextLineDataset([FILES_PATH])
   ds = ds.map(
@@ -196,6 +196,19 @@ def no_udf_dedup(split, shuffle_files=False):
   ds = ds.map(lambda *ex: dict(zip(["title", "text"], ex)))
   return ds
 
+'=============en_udf=================='
+def en_udf(split, shuffle_files=False):
+  del shuffle_files
+  DATA_DIR = 'gs://t5_swe_bucket/Data/U/U_EN/'
+  FILES_PATH = tf.io.gfile.glob(DATA_DIR + "*")
+
+  ds = tf.data.TextLineDataset([FILES_PATH])
+  ds = ds.map(
+      functools.partial(tf.io.decode_csv, record_defaults=["", ""],
+                        field_delim="\t", use_quote_delim=False),
+      num_parallel_calls=tf.data.experimental.AUTOTUNE)
+  ds = ds.map(lambda *ex: dict(zip(["title", "text"], ex)))
+  return ds
 
 
 

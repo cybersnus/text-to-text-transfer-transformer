@@ -591,6 +591,19 @@ TaskRegistry.add(
     token_preprocessor=preprocessors.unsupervised,
     metric_fns=None,
     )
+# ================================= en_u ===================================
+TaskRegistry.add(
+    "en_u",
+    dataset_fn=datasets_fn.en_udf,
+    splits=['train'],
+    text_preprocessor=functools.partial(
+        preprocessors.rekey,
+        key_map = {'inputs': None, 'targets': 'text'},
+    ),
+    token_preprocessor=preprocessors.unsupervised,
+    metric_fns=None,
+    )
+
 
 
 # ================================= translate SV-EN ===================================
