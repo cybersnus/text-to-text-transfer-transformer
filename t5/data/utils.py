@@ -45,7 +45,7 @@ _TFDS_DATA_DIR_OVERRIDE = None
 _GLOBAL_CACHE_DIRECTORIES = []
 
 #DEFAULT_SPM_PATH = "gs://t5-data/vocabs/cc_all.32000/sentencepiece.model"  # GCS
-DEFAULT_SPM_PATH = "gs://t5_swe_bucket/Vocab/custom_sv_test.model"
+DEFAULT_SPM_PATH = "gs://t5_swe_bucket/Vocab/nordic/custom_scandinavian_32k_cased.model"
 DEFAULT_EXTRA_IDS = 100
 
 
